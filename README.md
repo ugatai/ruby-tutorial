@@ -7,7 +7,7 @@
 <img src="https://img.shields.io/badge/Minitest-5.20.0-green.svg?style=flat" alt="Minitest 5.20.0">
 </p>
 
-# Ruby Tutorial 🔰
+# Ruby Tutorial
 
 ### Teaching materials 📚
 
