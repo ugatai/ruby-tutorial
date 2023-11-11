@@ -48,10 +48,15 @@ rbenv v1.2.0
 ├── .ruby-version       # Set ruby version file for RubyMine
 ```
 
-### `Minitest`
+# Command
+
+### `irb`
 
 ```sh
-ruby test/rgb_test.rb
+# Start ruby script
+irb
+# End ruby script
+exit
 ```
 
 # Zenn Article
