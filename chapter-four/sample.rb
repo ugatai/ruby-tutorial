@@ -274,3 +274,62 @@ first_val = a.first
 p first_val.upcase!
 p a
 
+puts '------------------------------'
+
+fruits = %w[apple orange melon]
+fruits.each_with_index { |fruit, index| puts "#{index} : #{fruit}" }
+
+p fruits.map
+p fruits.map.with_index { |fruit, index| "#{index}->#{fruit}" }
+p fruits.delete_if.with_index { |fruit, index| fruit.include?('a') && index.odd? }
+p fruits.delete_if.with_index(1) { |fruit, index| fruit.include?('a') && index.odd? }
+
+puts '------------------------------'
+
+dimensions = [
+  [10, 20],
+  [10, 30],
+  [15, 10]
+]
+
+areas = []
+dimensions.each do |dimension|
+  length, width = *dimension
+  areas << length * width
+end
+p areas
+
+dimensions.each_with_index do |(length, width), i|
+  puts "length: #{length}, width: #{width}, i: #{i}"
+end
+
+(length, width), i = [[10, 20], 0]
+p length, width, i
+
+puts '------------------------------'
+
+# 番号指定パラはほぼ使わない
+p %w[1 2 3].map { |s| s.rjust(3, '0') }
+p %w[1 2 3].map { _1.rjust(3, '0') }
+p %w[japan us itaky].map.with_index { [_2, _1] }
+
+puts '------------------------------'
+
+numbers = [1, 2, 3, 4, 5]
+sum = 0
+numbers.each do |num; sum|
+  sum =+ num
+  puts sum
+end
+
+puts sum
+
+puts '------------------------------'
+
+# File.open('./sample.txt', 'w') do |file|
+#   file.puts('one lines')
+#   file.puts('two lines')
+#   file.puts('three lines')
+# end
+
+puts '------------------------------'
