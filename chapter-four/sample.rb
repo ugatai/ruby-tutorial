@@ -317,8 +317,8 @@ puts '------------------------------'
 
 numbers = [1, 2, 3, 4, 5]
 sum = 0
-numbers.each do |num; sum|
-  sum =+ num
+numbers.each do |num; sum |
+  sum = +num
   puts sum
 end
 
@@ -333,3 +333,145 @@ puts '------------------------------'
 # end
 
 puts '------------------------------'
+
+numbers = [1, 2, 3, 4, 5]
+p numbers[2..]
+p numbers[..1]
+
+puts '------------------------------'
+
+sum = 0
+5.times { |n| sum += n }
+p sum
+
+sum = 0
+5.times { sum += 1 }
+p sum
+
+puts '------------------------------'
+
+a = []
+10.upto(15) { |num| a << num }
+p a
+
+a = []
+15.downto(10) { |num| a << num }
+p a
+
+puts '------------------------------'
+
+a = []
+1.step(10, 2) { |num| a << num }
+p a
+
+a = []
+10.step(1, -2) { |num| a << num }
+p a
+
+puts '------------------------------'
+
+a = []
+while a.size < 5
+  a << 1
+end
+p a
+
+a = []
+while a.size < 5 do
+  a << 1
+end
+p a
+
+a = []
+a << 1 while a.size < 5
+p a
+
+a = []
+begin
+  a << 'begin'
+end while false
+p a
+
+puts '------------------------------'
+
+a = [10, 10, 10, 10, 10]
+until a.size <= 3
+  a.delete_at(-1)
+end
+p a
+
+puts '------------------------------'
+
+# 基本 each, mapだがブロック内の変数スコープ云々の違いはある
+numbers = [1, 2, 3, 4, 5]
+sum = 0
+for num in numbers
+  sum += num
+end
+p sum
+
+sum = 0
+for num in numbers do
+  sum += num
+end
+p sum
+
+puts '------------------------------'
+
+numbers = [1, 2, 3, 4, 5]
+loop do
+  num = numbers.sample
+  puts num
+  break if num == 5
+end
+
+puts '------------------------------'
+
+def factorial(num)
+  num > 0 ? num * factorial(num - 1) : 1
+end
+
+p factorial(5)
+p factorial(0)
+
+puts '------------------------------'
+
+numbers = [1, 2, 3, 4, 5].shuffle
+numbers.each do |n|
+  puts n
+  break if n == 5
+end
+
+puts '------------------------------'
+
+fruits = %w[apple melon orange]
+nums = [1, 2, 3]
+catch :done do
+  fruits.shuffle.each do |fruit|
+    nums.shuffle.each do |n|
+      puts "fruit: #{fruit}, n: #{n}"
+      if fruit == 'orange' && n == 3
+        throw :done
+      end
+    end
+  end
+end
+
+puts '------------------------------'
+
+numbers = [1, 2, 3, 4, 5]
+numbers.each do |num|
+  next if num.even?
+  puts num
+end
+
+puts '------------------------------'
+
+foods = %w[ピーマン トマト セロリ]
+foods.each do |food|
+  puts "#{food}は好きですか？？ =>"
+  answer = %w[はい いいえ].sample
+  puts answer
+
+  redo unless answer == 'はい'
+end
