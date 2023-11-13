@@ -44,6 +44,8 @@ rbenv v1.2.0
 │   ├── test/           # Test code dir
 
 ├── chapter-six/        # Content for Chapter 6
+│   ├── test/           # Test code dir
+
 ├── chapter-seven/      # Content for Chapter 7
 ├── chapter-eight/      # Content for Chapter 8
 ├── chapter-nine/       # Content for Chapter 9
