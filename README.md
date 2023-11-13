@@ -20,7 +20,7 @@
 
 rbenv v1.2.0
 
-### Gem package 
+### Gem package
 
 <details>
   <summary>Using package list</summary>
@@ -33,9 +33,16 @@ rbenv v1.2.0
 ├── .github/            # Set commit message template
 ├── chapter-one/        # Content for Chapter 1
 ├── chapter-two/        # Content for Chapter 2
+
 ├── chapter-three/      # Content for Chapter 3
+│   ├── test/           # Test code dir
+
 ├── chapter-four/       # Content for Chapter 4
+│   ├── test/           # Test code dir
+
 ├── chapter-five/       # Content for Chapter 5
+│   ├── test/           # Test code dir
+
 ├── chapter-six/        # Content for Chapter 6
 ├── chapter-seven/      # Content for Chapter 7
 ├── chapter-eight/      # Content for Chapter 8
@@ -44,6 +51,7 @@ rbenv v1.2.0
 ├── chapter-eleven/     # Content for Chapter 11
 ├── chapter-twelve/     # Content for Chapter 12
 ├── chapter-thirteen/   # Content for Chapter 13
+
 ├── docs/               # Set document item
 ├── .ruby-version       # Set ruby version file for RubyMine
 ```
