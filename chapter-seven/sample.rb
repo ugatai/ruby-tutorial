@@ -40,6 +40,8 @@ users.each { |user| user.say_hello }
 puts '<--------------------------------------------------------------------------------------------------------------->'
 
 class Product
+  # @@classVariable = 'クラス変数'
+
   # 定数なのに変更が可能...
   # Product.freeze インスタンス後
   PERCENT = 0.1
@@ -93,7 +95,11 @@ class Dvd < Product
     puts "#{super}, memory: #{@memory}"
   end
 
+  alias get_detail get_info
+  undef get_detail
   # private_instance_methods :get_info
+
+  # == <- こいつも再定義できる（オーバーライド）
 end
 
 product = Product.new(1, 'product_1', 1000)
@@ -106,3 +112,42 @@ product.get_info
 # dvd.get_info
 
 puts '<--------------------------------------------------------------------------------------------------------------->'
+
+# puts Product.classVariable
+p nil.class
+
+$global = 'globalVariable'
+p $global
+
+puts '<--------------------------------------------------------------------------------------------------------------->'
+
+class Foo
+  class Bar
+    attr_accessor :name
+
+    # @param [String] name
+    def initialize(name)
+      @name = name
+    end
+  end
+
+  class BarPrivate
+  end
+
+  private_constant :BarPrivate
+end
+
+bar = Foo::Bar.new('bar')
+puts bar.name
+
+puts '<--------------------------------------------------------------------------------------------------------------->'
+
+alice = 'I am Alice.'
+bob = 'I am Bob.'
+
+def alice.shuffle
+  chars.shuffle.join
+end
+
+puts alice.shuffle
+# puts bob.shuffle
