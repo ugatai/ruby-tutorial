@@ -47,6 +47,10 @@ rbenv v1.2.0
 │   ├── test/           # Test code dir
 
 ├── chapter-seven/      # Content for Chapter 7
+│   ├── test/           # Test code dir
+│   ├── gate.rb         # Dfine Gate Class file
+│   ├── ticket.rb       # Dfine Ticket Class file
+
 ├── chapter-eight/      # Content for Chapter 8
 ├── chapter-nine/       # Content for Chapter 9
 ├── chapter-ten/        # Content for Chapter 10
