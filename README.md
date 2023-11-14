@@ -52,6 +52,9 @@ rbenv v1.2.0
 │   ├── ticket.rb       # Dfine Ticket Class file
 
 ├── chapter-eight/      # Content for Chapter 8
+│   ├── test/           # Test code dir
+│   ├── raibowable.rb   # Dfine Rainbowable Module file
+
 ├── chapter-nine/       # Content for Chapter 9
 ├── chapter-ten/        # Content for Chapter 10
 ├── chapter-eleven/     # Content for Chapter 11
