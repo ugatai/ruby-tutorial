@@ -38,3 +38,71 @@ users = User.create(%w[Alice Bob Carol])
 users.each { |user| user.say_hello }
 
 puts '<--------------------------------------------------------------------------------------------------------------->'
+
+class Product
+  # 定数なのに変更が可能...
+  # Product.freeze インスタンス後
+  PERCENT = 0.1
+  STATUS = ['hoge', 'foo'].map(&:freeze).freeze
+
+  attr_accessor :name, :price
+  private attr_accessor :id
+  protected attr_reader :unit
+
+  # @param [Integer] id
+  # @param [String] name
+  # @param [Integer] price
+  # @return [NilClass]
+  def initialize(id, name, price)
+    @id = id
+    @name = name
+    @price = price
+    @unit = price - price * PERCENT
+  end
+
+  # @return [NilClass]
+  def get_info
+    puts "name: #{@name}, price: #{self.get_formatted_number(@price)}"
+  end
+
+  # @param [Product] product
+  # @return [Boolean]
+  def higher_unit?(product)
+    product.unit < @unit
+  end
+
+  private
+
+  # @param [Integer] number
+  # @return [String]
+  def get_formatted_number(number)
+    number.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\1,').reverse
+  end
+end
+
+class Dvd < Product
+  attr_accessor :memory
+
+  # @param [Integer] memory
+  def initialize(*, memory)
+    super
+    @memory = memory
+  end
+
+  def get_info
+    puts "#{super}, memory: #{@memory}"
+  end
+
+  # private_instance_methods :get_info
+end
+
+product = Product.new(1, 'product_1', 1000)
+puts product.name, product.price
+product.get_info
+
+# params = { id: 2, name: 'dvd_1', price: 1500 }
+# dvd = Dvd.new(*params, 100)
+# p dvd.name
+# dvd.get_info
+
+puts '<--------------------------------------------------------------------------------------------------------------->'
